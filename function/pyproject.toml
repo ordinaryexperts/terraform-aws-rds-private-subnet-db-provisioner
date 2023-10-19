@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "function"
+version = "0.1.0"
+description = ""
+authors = ["Jason McVetta <jmcvetta@hey.com>"]
+license = "BSD"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.10.0"
+ipython = "^8.16.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
