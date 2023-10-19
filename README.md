@@ -10,8 +10,8 @@ Implementation
 We create a Lambda function in the database subnet, attached to a security group
 that grants access to the RDS instance.  Database credentials are read into the
 function from a Secrets Manager secret.  The function calls Ansible (because 
-Ansible is good at managing RDS databases/users/groups/permissions) and executes 
-the playbook you supply.
+Ansible is good at managing RDS databases / users / groups / permissions) and 
+executes the playbook you supply.
 
 ### Caveat
 
