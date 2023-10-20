@@ -1,0 +1,11 @@
+block-list-secret-scan: []
+download-external-modules: true
+evaluate-variables: true
+#framework:
+#- terraform
+quiet: true
+compact: true
+skip-check:
+- CKV_TF_1  # The suggestion to use git hashes instead of version numbers is wretched
+directory:
+- .
