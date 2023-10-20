@@ -1,6 +1,6 @@
-variable "function_name" {
+variable "name" {
   type        = string
-  description = "Name for the Lambda function"
+  description = "Unique name (no spaces)"
 }
 
 variable "tags" {

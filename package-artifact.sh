@@ -20,12 +20,13 @@ function log() {
 }
 
 
+log Packaging Lambda dependencies as lambda_deps.zip
 tmpdir="$(mktemp -d)"
-log tmpdir: $tmpdir
-#trap 'rm -rf -- "$tmpdir"' EXIT
+#log tmpdir: $tmpdir
+trap 'rm -rf -- "$tmpdir"' EXIT
 poetry install
 poetry build
-#trap 'rm -rf -- ./dist' EXIT
+trap 'rm -rf -- ./dist' EXIT
 poetry run pip install --upgrade -t "$tmpdir" dist/*.whl
-artifact="$(pwd)/artifact.zip"
+artifact="$(pwd)/lambda_deps.zip"
 cd "$tmpdir" && zip -r "$artifact" . -x '*.pyc'

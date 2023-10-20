@@ -3,7 +3,7 @@ module "docker_image" {
   version = "6.0.1"
 
   create_ecr_repo = true
-  ecr_repo        = var.function_name
+  ecr_repo        = var.name
 
   ecr_repo_lifecycle_policy = jsonencode({
     "rules" : [

@@ -1,13 +1,34 @@
-module "lambda" {
+module "lambda_function" {
   source  = "terraform-aws-modules/lambda/aws"
   version = "6.0.1"
 
-  function_name = var.function_name
+  function_name = var.name
   description   = "Provisioner for RDS databases / users / groups / permissions"
 
-  runtime     = "python3.11"
-  handler     = "main.handler"
-  source_path = "./function"
+  runtime = "python3.11"
+  handler = "main.handler"
+
+  local_existing_package = data.archive_file.lambda_function.output_path
+
+  layers = [
+    module.deps.lambda_layer_arn,
+  ]
 
   tags = var.tags
+}
+
+module "deps" {
+  source  = "terraform-aws-modules/lambda/aws"
+  version = "6.0.1"
+
+  create_layer = true
+
+  layer_name          = "${var.name}-deps"
+  description         = "Dependencies for ${var.name}"
+  compatible_runtimes = ["python3.11"]
+
+  local_existing_package = "${path.module}/lambda_deps.zip"
+
+  store_on_s3 = false
+  #  s3_bucket   = "my-bucket-id-with-lambda-builds"
 }
