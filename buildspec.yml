@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      - pip install poetry
+  build:
+    commands:
+      - echo Build started on `date`
+      - cd function && poetry run pip install --upgrade -t ../package dist/*.whl
+      - cd package ; zip -r ../artifact.zip . -x '*.pyc'
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+  files:
+    - artifact.zip
