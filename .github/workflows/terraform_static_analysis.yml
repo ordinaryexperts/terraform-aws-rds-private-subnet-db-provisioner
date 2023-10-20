@@ -1,9 +1,14 @@
 name: Terraform Static Analysis
+
+permissions:
+  contents: read # for actions/checkout to fetch code
+  security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+  #actions: read # only required for a private repository by github/codeql-action/upload-sarif to get the Action run status
+
 on:
   push:
-  # Scheduled runs ensure we are alerted to incompatibilities in new releases
-  # of Terraform.
   schedule:
+    # Scheduled runs ensure we are alerted when new checked are added to Checkov
     - cron: '20 4 * * *'
 
 jobs:
