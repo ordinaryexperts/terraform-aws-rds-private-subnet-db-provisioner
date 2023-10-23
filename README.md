@@ -1,5 +1,5 @@
-terraform-aws-rds-lambda-db-provisioner
-=======================================
+terraform-aws-rds-private-subnet-db-provisioner
+===============================================
 
 Terraform module to provision databases / users / groups / permissions in an RDS
 instance, even when the instance is in a private subnet.
@@ -34,3 +34,4 @@ License
 -------
 
 This is Free Software, released under the terms of the Simplified BSD license.
+
