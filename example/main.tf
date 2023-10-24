@@ -70,7 +70,7 @@ resource "aws_security_group_rule" "db_access" {
 }
 
 module "db_provisioner" {
-  source = "../.."
+  source = "../"
 
   name               = "db-provisioner-experiment"
   subnet_ids         = module.vpc.private_subnets
