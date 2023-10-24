@@ -10,6 +10,9 @@ module "lambda_function" {
 
   local_existing_package = data.archive_file.lambda_function.output_path
 
+  vpc_subnet_ids         = var.subnet_ids
+  vpc_security_group_ids = var.security_group_ids
+
   layers = [
     module.deps.lambda_layer_arn,
   ]
