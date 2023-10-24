@@ -1,3 +1,4 @@
+/*
 module "lambda_function" {
   source  = "terraform-aws-modules/lambda/aws"
   version = "6.0.1"
@@ -35,3 +36,4 @@ module "deps" {
   store_on_s3 = false
   #  s3_bucket   = "my-bucket-id-with-lambda-builds"
 }
+*/
