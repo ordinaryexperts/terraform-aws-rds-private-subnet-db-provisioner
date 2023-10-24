@@ -2,12 +2,14 @@ package test
 
 import (
 	"fmt"
+	"strings"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/aws"
 	"github.com/gruntwork-io/terratest/modules/random"
 	"github.com/gruntwork-io/terratest/modules/terraform"
 	test_structure "github.com/gruntwork-io/terratest/modules/test-structure"
+	"github.com/sirupsen/logrus"
 )
 
 type ExampleFunctionPayload struct {
@@ -24,10 +26,11 @@ func TestDeployOnly(t *testing.T) {
 
 	// Give this lambda function a unique ID for a name so we can distinguish it from any other lambdas
 	// in your AWS account
-	name := fmt.Sprintf("terratest-db-provisioner-%s", random.UniqueId())
+	name := fmt.Sprintf("terratest-db-provisioner-%s", strings.ToLower(random.UniqueId()))
+	logrus.WithField("name", name).Warn("generated name")
 
 	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
-	awsRegion := aws.GetRandomStableRegion(t, nil, nil)
+	awsRegion := aws.GetRandomStableRegion(t, nil, []string{"us-east-1", "us-east-2"})
 
 	// Construct the terraform options with default retryable errors to handle the most common retryable errors in
 	// terraform testing.
