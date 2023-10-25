@@ -61,9 +61,10 @@ module "rds" {
 }
 
 resource "aws_security_group" "db_access" {
-  name   = "${var.name}-db-access"
-  vpc_id = module.vpc.vpc_id
-  tags   = local.tags
+  name        = "${var.name}-db-access"
+  description = "DB access for ${var.name}"
+  vpc_id      = module.vpc.vpc_id
+  tags        = local.tags
 }
 
 resource "aws_security_group_rule" "db_access" {
