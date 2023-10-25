@@ -16,7 +16,7 @@ module "vpc" {
   cidr             = "10.0.0.0/16"
   azs              = ["${var.region}a", "${var.region}b", "${var.region}c"]
   private_subnets  = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
-  database_subnets = ["10.1.1.0/24", "10.1.2.0/24", "10.1.3.0/24"]
+  database_subnets = ["10.0.101.0/24", "10.0.102.0/24", "10.0.103.0/24"]
   tags             = local.tags
 }
 
@@ -41,6 +41,7 @@ module "rds" {
   storage_encrypted    = false
   vpc_id               = module.vpc.vpc_id
   db_subnet_group_name = module.vpc.database_subnet_group_name
+  master_username      = "root"
   master_password      = random_password.master.result
   apply_immediately    = true
   skip_final_snapshot  = true
