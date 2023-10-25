@@ -32,11 +32,11 @@ jobs:
         run: |
           go install github.com/jstemmer/go-junit-report@latest
 
-      - name: Go get dependencies
+      - name: Download Go modules
         shell: bash
         working-directory: test
         run: |
-          go get -v
+          go mod download
 
       - name: Run Tests
         shell: bash
