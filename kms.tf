@@ -3,4 +3,6 @@ module "kms" {
   version = "2.0.1"
 
   aliases = [var.name]
+
+  tags = var.tags
 }

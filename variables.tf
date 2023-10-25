@@ -22,3 +22,4 @@ variable "security_group_ids" {
   description = "Security groups granting access to target databases"
   nullable    = false
 }
+
