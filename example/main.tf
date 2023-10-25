@@ -61,6 +61,8 @@ module "rds" {
 }
 
 resource "aws_security_group" "db_access" {
+  # checkov:skip=CKV2_AWS_5: SG is attached to resource via module db_provisioner
+
   name        = "${var.name}-db-access"
   description = "DB access for ${var.name}"
   vpc_id      = module.vpc.vpc_id
