@@ -22,14 +22,21 @@ jobs:
       - uses: actions/setup-go@v4
         with:
           go-version-file: test/go.mod
-          cache: true
-          cache-dependency-path: test/go.mod
+          cache-dependency-path: |
+            test/go.sum
+          check-latest: true
 
       - name: Install go-junit-report
         shell: bash
         working-directory: test
         run: |
           go install github.com/jstemmer/go-junit-report@latest
+
+      - name: Go get dependencies
+        shell: bash
+        working-directory: test
+        run: |
+          go get -v
 
       - name: Run Tests
         shell: bash
