@@ -1,5 +1,5 @@
 block-list-secret-scan: []
-download-external-modules: true
+download-external-modules: false
 evaluate-variables: true
 #framework:
 #- terraform
