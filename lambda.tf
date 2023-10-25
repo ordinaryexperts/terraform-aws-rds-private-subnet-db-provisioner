@@ -9,7 +9,7 @@ module "lambda_function" {
   runtime = "python3.11"
   handler = "main.handler"
 
-  local_existing_package = data.archive_file.lambda_function.output_path
+  local_existing_package = "${path.module}/lambda_function.zip"
 
   vpc_subnet_ids         = var.subnet_ids
   vpc_security_group_ids = var.security_group_ids
