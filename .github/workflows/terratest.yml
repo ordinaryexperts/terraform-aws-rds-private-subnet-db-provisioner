@@ -41,7 +41,7 @@ jobs:
         run: |
           go mod download
 
-      - name: Run Tests
+      - name: Run Terratest
         shell: bash
         working-directory: test
         run: |
