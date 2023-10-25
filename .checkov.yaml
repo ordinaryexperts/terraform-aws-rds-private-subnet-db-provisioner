@@ -10,4 +10,4 @@ skip-check:
 directory:
   - .
 skip-path:
-  - test/
+  - example/
