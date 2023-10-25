@@ -1,0 +1,21 @@
+name: Pull Request
+
+on:
+  push: # FIXME - remove this!
+  pull_request:
+    branches: [ 'main' ]
+    types: [ opened, synchronize, reopened, closed, labeled, unlabeled ]
+
+
+permissions:
+  contents: read # for actions/checkout to fetch code
+
+
+jobs:
+  context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Terratest
+        uses: cloudposse/github-action-terratest@main
+        with:
+          sourceDir: test
