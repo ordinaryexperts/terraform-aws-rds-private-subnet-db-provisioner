@@ -56,8 +56,6 @@ func terraformOptions(t *testing.T) *terraform.Options {
 }
 
 func TestValidate(t *testing.T) {
-	t.Parallel()
-
 	opts := terraformOptions(t)
 
 	terraform.Init(t, opts)
