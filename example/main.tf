@@ -3,6 +3,11 @@ locals {
     Terratest = var.name
   }
 }
+
+provider "aws" {
+  region = var.region
+}
+
 module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2"
@@ -57,6 +62,7 @@ module "rds" {
 resource "aws_security_group" "db_access" {
   name   = "${var.name}-db-access"
   vpc_id = module.vpc.vpc_id
+  tags   = local.tags
 }
 
 resource "aws_security_group_rule" "db_access" {
@@ -75,4 +81,5 @@ module "db_provisioner" {
   name               = "db-provisioner-experiment"
   subnet_ids         = module.vpc.private_subnets
   security_group_ids = [aws_security_group.db_access.id]
+  tags               = local.tags
 }
