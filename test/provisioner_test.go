@@ -2,6 +2,8 @@ package test
 
 import (
 	"fmt"
+	"github.com/brianvoe/gofakeit/v6"
+	"strings"
 	"testing"
 	"time"
 
@@ -29,7 +31,7 @@ func terraformOptions(t *testing.T) *terraform.Options {
 
 	// Give this lambda function a unique ID for a name so we can distinguish it from any other lambdas
 	// in your AWS account
-	name := fmt.Sprintf("terratest-db-provisioner-%s", time.Now().Format("2006_01_02-15_04_05"))
+	name := fmt.Sprintf("terratest-db-provisioner-%s-%s", time.Now().Format("2006-01-02"), strings.ToLower(gofakeit.Vegetable()))
 	log.WithField("name", name).Info("generated name")
 
 	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
@@ -53,7 +55,7 @@ func terraformOptions(t *testing.T) *terraform.Options {
 	}
 }
 
-func TestDeployOnly(t *testing.T) {
+func TestValidate(t *testing.T) {
 	t.Parallel()
 
 	opts := terraformOptions(t)
@@ -63,11 +65,20 @@ func TestDeployOnly(t *testing.T) {
 		// Cannot pass non-empty Options.Vars to Validate
 		TerraformDir: opts.TerraformDir,
 	})
+}
+
+func TestDeployOnly(t *testing.T) {
+	t.Parallel()
+
+	opts := terraformOptions(t)
+
+	terraform.Init(t, opts)
+
 	// At the end of the test, run `terraform destroy` to clean up any resources that were created
-	//defer terraform.Destroy(t, terraformOptions)
+	defer terraform.Destroy(t, opts)
 
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
-	//terraform.InitAndApply(t, terraformOptions)
+	terraform.InitAndApply(t, opts)
 
 	// Invoke the function, so we can test its output
 	//response := aws.InvokeFunction(t, awsRegion, name, ExampleFunctionPayload{ShouldFail: false, Echo: "hi!"})

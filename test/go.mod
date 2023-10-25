@@ -3,6 +3,8 @@ module test
 go 1.21.3
 
 require (
+	github.com/brianvoe/gofakeit/v6 v6.24.0
+	github.com/gruntwork-io/go-commons v0.8.0
 	github.com/gruntwork-io/terratest v0.46.1
 	github.com/sirupsen/logrus v1.8.1
 )
@@ -37,7 +39,6 @@ require (
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.2.5 // indirect
 	github.com/googleapis/gax-go/v2 v2.12.0 // indirect
-	github.com/gruntwork-io/go-commons v0.8.0 // indirect
 	github.com/hashicorp/errwrap v1.0.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-getter v1.7.1 // indirect
