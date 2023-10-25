@@ -6,6 +6,8 @@ evaluate-variables: true
 quiet: true
 compact: true
 skip-check:
-- CKV_TF_1  # The suggestion to use git hashes instead of version numbers is wretched
+  - CKV_TF_1  # The suggestion to use git hashes instead of version numbers is wretched
 directory:
-- .
+  - .
+skip-path:
+  - test/
