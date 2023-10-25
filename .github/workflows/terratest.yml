@@ -15,7 +15,42 @@ jobs:
   terratest:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Terratest
-        uses: cloudposse/github-action-terratest@main
+      - uses: actions/checkout@v4
         with:
-          sourceDir: test
+          fetch-depth: 0
+
+      - uses: actions/setup-go@v4
+        with:
+          go-version-file: test/go.mod
+          cache: true
+          cache-dependency-path: test/go.mod
+
+      - name: Install go-junit-report
+        shell: bash
+        working-directory: test
+        run: |
+          go install github.com/jstemmer/go-junit-report@latest
+
+      - name: Run Tests
+        shell: bash
+        working-directory: test
+        run: |
+          go test -v ./... | tee test.out
+
+      - name: Convert test results to JUnit XML format
+        shell: bash
+        working-directory: test
+        run: |
+          cat test.out | go-junit-report -set-exit-code | tee report.xml
+
+      - name: Post Test Summary
+        uses: test-summary/action@v1
+        with:
+          paths: |
+            test/report.xml
+        if: always()
+
+#      - name: Run Terratest
+#        uses: cloudposse/github-action-terratest@main
+#        with:
+#          sourceDir: test
