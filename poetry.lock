@@ -2,27 +2,27 @@
 
 [[package]]
 name = "ansible"
-version = "8.5.0"
+version = "8.6.1"
 description = "Radically simple IT automation"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "ansible-8.5.0-py3-none-any.whl", hash = "sha256:2749032e26b0dbc9a694528b85fd89e7f950b8c7b53606f17dd997f23ac7cc88"},
-    {file = "ansible-8.5.0.tar.gz", hash = "sha256:327c509bdaf5cdb2489d85c09d2c107e9432f9874c8bb5c0702a731160915f2d"},
+    {file = "ansible-8.6.1-py3-none-any.whl", hash = "sha256:222735c32d2d2749f207e55ef740638bb97c7aaaa8b63bb7c7592d447da47584"},
+    {file = "ansible-8.6.1.tar.gz", hash = "sha256:18b397580c1f05ce5de1fe238508dd81218d278667956d2f7709320176c3ed4a"},
 ]
 
 [package.dependencies]
-ansible-core = ">=2.15.5,<2.16.0"
+ansible-core = ">=2.15.6,<2.16.0"
 
 [[package]]
 name = "ansible-core"
-version = "2.15.5"
+version = "2.15.6"
 description = "Radically simple IT automation"
 optional = false
 python-versions = ">=3.9"
 files = [
-    {file = "ansible-core-2.15.5.tar.gz", hash = "sha256:8cc539cb8d4349af3ffd901c70722f7a7a203ae6427ddac95ffdf546a6e41602"},
-    {file = "ansible_core-2.15.5-py3-none-any.whl", hash = "sha256:3efa234de5fce79ec98853f3369535b27cacd7ce498495b996030cd15c373735"},
+    {file = "ansible-core-2.15.6.tar.gz", hash = "sha256:351278fb8685fec1d645e2ddcfdca0c73456ff1db06426b86b6dd53774f7d7ba"},
+    {file = "ansible_core-2.15.6-py3-none-any.whl", hash = "sha256:fab3a5994482991274cae17500ca852007dbd76f564418f172f07cb00edbb293"},
 ]
 
 [package.dependencies]
@@ -62,34 +62,34 @@ test = ["astroid", "pytest"]
 
 [[package]]
 name = "awslambdaric"
-version = "2.0.7"
+version = "2.0.8"
 description = "AWS Lambda Runtime Interface Client for Python"
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "awslambdaric-2.0.7-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:df0f7833c87a67c428e2b9dd5ce1e5c40d65d6baf2a92d11eebb22f98cb25bf7"},
-    {file = "awslambdaric-2.0.7-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:51d9535eec9f207e8c4bf9b7fae13a4932b8e5aaabed0a65c6324e7db4901b47"},
-    {file = "awslambdaric-2.0.7-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:0eeb0b7537a4a5ccddca73149536818b724e8a4ad18f46af81fb3573655d1d14"},
-    {file = "awslambdaric-2.0.7-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:29cdc5bc304ba89c60b4a16a336a99e68db15bb18f59e835df1015e3d6426a48"},
-    {file = "awslambdaric-2.0.7-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:b35d9175e11d999f47ab9aae621003360b3b1467fdf0eec6776d4f9b18d4ea1e"},
-    {file = "awslambdaric-2.0.7-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:232e48dd28ecbdeae19e3678ab49806e49d2f78f8aed171dd645104422601d16"},
-    {file = "awslambdaric-2.0.7-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f159a3a16e9c964d613ed6ece838db8b8f93d685b4cc89b4db4f93ded0f1ecfd"},
-    {file = "awslambdaric-2.0.7-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c372f9a969c7ff07cc5581e4d0334942d4387e76e900d151b30cf7748684e94e"},
-    {file = "awslambdaric-2.0.7-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:708aea40ea478e8e146abc608a10770732ff9a52cbe311eb498fb790b8084853"},
-    {file = "awslambdaric-2.0.7-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:8e46e5d68ddeaec134824b8b10b0328119a5b53c02f2cd44f9791deda0f51bfd"},
-    {file = "awslambdaric-2.0.7-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:da6585dc92737a96788d2adcb552f5d1fa18f1ba19bad800aafe5a93626c40cf"},
-    {file = "awslambdaric-2.0.7-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f95aaf5ee3b120f9ca9e82dbf30ff862867cc3c942e7b2cdb7393fcec05d943a"},
-    {file = "awslambdaric-2.0.7-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ac69b5882ad23ea7e20548d3a791f4238560036d7728a52ea9273d51df57f255"},
-    {file = "awslambdaric-2.0.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:033ffa9982144c84dcba6f8d8a28cfee22ca1d42c8ca12db654a6bc92de5472a"},
-    {file = "awslambdaric-2.0.7-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4e1e32a5ab504a1884ef0a03649a840118e462eaa18f889f298976d80ce53d37"},
-    {file = "awslambdaric-2.0.7-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5741d4ba4da15ea6a661363662ff5914ca2619d871d82ea370ef2b56f8f1b7bb"},
-    {file = "awslambdaric-2.0.7-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:609dfa86c2dd5768e04f5286720bae40a6a284e31f1eed251234ced5c208b961"},
-    {file = "awslambdaric-2.0.7-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:d88b2018af3867d1b26a21a2136269a52cd7d6d27af3694971ab1791f5e41ace"},
-    {file = "awslambdaric-2.0.7-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:a747423055af5233736a4c4d6fbb423c2520741f5c11bdfc84abba39dad4d978"},
-    {file = "awslambdaric-2.0.7-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:dbf4fa7cc92a14ee39b04566c65c423c10a6dbfbb16f9ce0d5437eb1f626cf04"},
-    {file = "awslambdaric-2.0.7-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:47351fdd12ab5773b5bee2a89d6d63500bb418828084627556368ffbc1ce6236"},
-    {file = "awslambdaric-2.0.7-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:5c11adfad2a847819e4884706cf70a1a0a854d774592747f89adabc61af5075b"},
-    {file = "awslambdaric-2.0.7.tar.gz", hash = "sha256:d2705914957b218f32412513b59d0af2d6f33d0c49fbc7e4f6f0a2bf0777dc13"},
+    {file = "awslambdaric-2.0.8-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9363260e0a2194ee47453ba5daad081005d2add0d49016ecdddc55ad67bff773"},
+    {file = "awslambdaric-2.0.8-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:19f2fd3f3c5e86a91f9dafb3299d52b0b303467444a8399ac10aabf2737d5e1a"},
+    {file = "awslambdaric-2.0.8-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e798e8e9264758fe6f9d468e3ae161e578075a1f7412469a81325ee25483578e"},
+    {file = "awslambdaric-2.0.8-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:e727ce87de98391dcd23aede1f294d380813e641819f968ce2053da5c11d1844"},
+    {file = "awslambdaric-2.0.8-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:344cec13462637e35925f520cc34ed3d8d66d72631bce6b4cb10c610f45f6793"},
+    {file = "awslambdaric-2.0.8-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:2b37d3c5e0a0811362cfb88e573d1fcb82c1210c6c9019503bdf8d05dd38285b"},
+    {file = "awslambdaric-2.0.8-cp36-cp36m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:4b26ca34724dfa4f8433aaa307d5dac1fdea11c616dd6553977aa7b55a12535e"},
+    {file = "awslambdaric-2.0.8-cp36-cp36m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:54214a6a951dba8168c38d8a89a9235dc1cafe5ed995c862dc91a939bd6f8912"},
+    {file = "awslambdaric-2.0.8-cp37-cp37m-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:9e4fb3d95cfe318973a492f267ccf989e428d9fe7a8a861d553c3732d9a84452"},
+    {file = "awslambdaric-2.0.8-cp37-cp37m-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:93d43a9042cccdab1f5419169a0bc0f8765e65d4f356d37ef98959d1ef877794"},
+    {file = "awslambdaric-2.0.8-cp38-cp38-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:ed6c7dc49f9c1bc42a82d6f8c9a68d63ba9056a635f3f15d75c2a97567223300"},
+    {file = "awslambdaric-2.0.8-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:c8e206aa1b888017a3397e621b32fc1a11999b9c6fc7a92e52f916a862dbbaa1"},
+    {file = "awslambdaric-2.0.8-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:dd6d1b1dc218366e856728073d63295966aba4a99dc21f0c879b936129aea17b"},
+    {file = "awslambdaric-2.0.8-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a491b65417b1f273fef28f26fe0d108a82b42994c374421ab1afb4417680c15e"},
+    {file = "awslambdaric-2.0.8-pp310-pypy310_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:bb912bc618cf4acee3e32b8f4c1ff9c3ad372bef3ef737564a6e7d87c05c0878"},
+    {file = "awslambdaric-2.0.8-pp310-pypy310_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:08140f5a922da004da2ca15322d324d69d4d17de92a0fba875f18ea5a486d854"},
+    {file = "awslambdaric-2.0.8-pp37-pypy37_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:f496941acb3bcdd2988d1a78f0d17eb9fb282b1a6eae1ee3cc105a1d7788da43"},
+    {file = "awslambdaric-2.0.8-pp37-pypy37_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:06afcf91dc1661ec9695d480d8d1aceb77fc9fb626e1f3c93c8081c009fe01d8"},
+    {file = "awslambdaric-2.0.8-pp38-pypy38_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:67917bf30c23a0d8995818d44b5ce8f79753773b25168a60a6d73aabbb50c120"},
+    {file = "awslambdaric-2.0.8-pp38-pypy38_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:33e11996f6c9c259289b631ac76e3093c0e9d7141efcb4265c4c1365d7ed39b9"},
+    {file = "awslambdaric-2.0.8-pp39-pypy39_pp73-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:07c3e3b6c8014084430a11a3ea9032fd5863376099b5bdbfaba26928fa36fa61"},
+    {file = "awslambdaric-2.0.8-pp39-pypy39_pp73-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:efa64b8602f44389cda7aa1e4030d4234c3cbe6c17808206761449bd6f106b26"},
+    {file = "awslambdaric-2.0.8.tar.gz", hash = "sha256:1fb1b240208c339105670d5446bd9027b5536b625af3a6e9ec084a828a3c70c5"},
 ]
 
 [package.dependencies]
