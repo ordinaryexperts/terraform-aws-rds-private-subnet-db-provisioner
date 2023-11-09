@@ -16,6 +16,7 @@ awslambdaric = "^2.0"
 black = "^23.10.0"
 ipython = "^8.16.1"
 localstack = "^2.3.2"
+awscli-local = "^0.21"
 
 [build-system]
 requires = ["poetry-core"]
