@@ -18,43 +18,41 @@ type ExampleFunctionPayload struct {
 	ShouldFail bool
 }
 
+type testConfiguration struct {
+	name   string
+	opts   *terraform.Options
+	region string
+}
+
+var name = fmt.Sprintf("terratest-db-provisioner-%s-%s", time.Now().Format("2006-01-02"), strings.ToLower(gofakeit.Vegetable()))
+var availableRegions = []string{"us-east-2", "us-west-2"}
+
 func init() {
 	log.SetLevel(log.DebugLevel)
 	//log.SetReportCaller(true)
+
+	log.WithFields(log.Fields{
+		"log_level": log.GetLevel(),
+		"name":      name,
+	}).Info("Configuration")
+
 }
 
 // terraformOptions returns a populated terraform.Options object.
 func terraformOptions(t *testing.T) *terraform.Options {
-	// Make a copy of the terraform module to a temporary directory. This allows running multiple tests in parallel
-	// against the same terraform module.
 	exampleFolder := test_structure.CopyTerraformFolderToTemp(t, "../", "example")
-
-	// Give this lambda function a unique ID for a name so we can distinguish it from any other lambdas
-	// in your AWS account
-	name := fmt.Sprintf("terratest-db-provisioner-%s-%s", time.Now().Format("2006-01-02"), strings.ToLower(gofakeit.Vegetable()))
-	log.WithField("name", name).Info("generated name")
-
-	// Pick a random AWS region to test in. This helps ensure your code works in all regions.
-	awsRegion := aws.GetRandomStableRegion(t, []string{"us-east-2"}, nil)
-	log.WithField("region", awsRegion).Info("AWS region")
-
-	// Construct the terraform options with default retryable errors to handle the most common retryable errors in
-	// terraform testing.
-	//terraformOptions := terraform.WithDefaultRetryableErrors(t, &terraform.Options{
-
+	region := aws.GetRandomStableRegion(t, availableRegions, nil)
 	return &terraform.Options{
-
-		// The path to where our Terraform code is located
 		TerraformDir: exampleFolder,
-
 		// Variables to pass to our Terraform code using -var options
 		Vars: map[string]interface{}{
 			"name":   name,
-			"region": awsRegion,
+			"region": region,
 		},
 	}
 }
 
+// TestValidate checks that our Terraform code is valid.
 func TestValidate(t *testing.T) {
 	opts := terraformOptions(t)
 
@@ -78,14 +76,15 @@ func TestDeployOnly(t *testing.T) {
 	// This will run `terraform init` and `terraform apply` and fail the test if there are any errors
 	terraform.InitAndApply(t, opts)
 
+	aws.GetRdsInstanceDetailsE(t, name, region)
 	// Invoke the function, so we can test its output
-	//response := aws.InvokeFunction(t, awsRegion, name, ExampleFunctionPayload{ShouldFail: false, Echo: "hi!"})
+	//response := aws.InvokeFunction(t, region, name, ExampleFunctionPayload{ShouldFail: false, Echo: "hi!"})
 
 	// This function just echos it's input as a JSON string when `ShouldFail` is `false``
 	//assert.Equal(t, `"hi!"`, string(response))
 
 	// Invoke the function, this time causing it to error and capturing the error
-	//_, err := aws.InvokeFunctionE(t, awsRegion, name, ExampleFunctionPayload{ShouldFail: true, Echo: "hi!"})
+	//_, err := aws.InvokeFunctionE(t, region, name, ExampleFunctionPayload{ShouldFail: true, Echo: "hi!"})
 
 	// Function-specific errors have their own special return
 	//functionError, ok := err.(*aws.FunctionError)
